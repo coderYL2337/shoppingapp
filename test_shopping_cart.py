@@ -25,6 +25,21 @@ class TestShoppingCart(unittest.TestCase):
     def test_invalid_discount(self):
         with self.assertRaises(ValueError):
             self.cart.apply_discount(150)
+    
+    def test_checkout(self):
+        self.cart.add_item("Apple", 0.50, 3)
+        self.cart.checkout()
+        self.assertEqual(len(self.cart.purchase_history), 1)
+        self.assertEqual(self.cart.items, {})
+
+    def test_purchase_history(self):
+        self.cart.add_item("Apple", 0.50, 3)
+        self.cart.apply_discount(10)
+        self.cart.checkout()
+        history = self.cart.get_purchase_history()
+        self.assertIn("Purchase #1:", history)
+        self.assertIn("Apple: $0.5 x 3", history)
+        self.assertIn("Discount applied: 10%", history)
 
 if __name__ == '__main__':
     unittest.main()
