@@ -22,9 +22,9 @@ class TestShoppingCart(unittest.TestCase):
         self.cart.apply_discount(20)
         self.assertEqual(self.cart.total, 1.60)
 
-            def test_invalid_discount(self):
-                with self.assertRaises(ValueError):
-                    self.cart.apply_discount(150)
+    def test_invalid_discount(self):
+        with self.assertRaises(ValueError):
+            self.cart.apply_discount(150)
 
 if __name__ == '__main__':
     unittest.main()
