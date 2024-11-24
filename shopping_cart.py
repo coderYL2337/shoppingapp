@@ -12,10 +12,13 @@ class ShoppingCart:
             self.items[item] = {'price': price, 'quantity': quantity}
         self.update_total()
 
-    def apply_discount(self, percentage):
-        if not 0 <= percentage <= 100:
-            raise ValueError("Discount must be between 0 and 100")
-        self.discount = percentage
+    ```python
+        def apply_discount(self, percentage):
+            if not 0 <= percentage <= 100:
+                raise ValueError("Discount must be between 0 and 100")
+            self.discount = percentage
+            self.update_total()
+    ```
         self.update_total()
 
     def update_total(self):
