@@ -68,5 +68,6 @@ class ShoppingCart:
         receipt.append(f"Total: ${self.total:.2f}")
         return "\n".join(receipt)
     def get_return(self):
-        return=[]
-        return "\".join(return)
+                return=[]
+                return ".join(return)
+            
