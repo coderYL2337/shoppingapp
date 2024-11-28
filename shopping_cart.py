@@ -67,11 +67,12 @@ class ShoppingCart:
             receipt.append(f"Discount applied: {self.discount}%")
         receipt.append(f"Total: ${self.total:.2f}")
         return "\n".join(receipt)
+        
     def get_return(self):
-                return=[]
-                for item, details in self.items.items():
-                    if details['quantity'] > 0:
-                        line = f"{item}: ${details['price']} x {details['quantity']} = ${-details['price'] * details['quantity']}"
-                        return_items.append(line)
-                return "\n".join(return_items)
+        return_items = []
+        for item, details in self.items.items():
+            if details['quantity'] > 0:
+                line = f"{item}: ${-details['price']} x {details['quantity']} = ${-details['price'] * details['quantity']}"
+                return_items.append(line)
+        return "\n".join(return_items)
             
