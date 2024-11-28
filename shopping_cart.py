@@ -12,13 +12,13 @@ class ShoppingCart:
             self.items[item] = {'price': price, 'quantity': quantity}
         self.update_total()
 
-    ```python
-        def apply_discount(self, percentage):
+   
+    def apply_discount(self, percentage):
             if not 0 <= percentage <= 100:
                 raise ValueError("Discount must be between 0 and 100")
             self.discount = percentage
             self.update_total()
-    ```
+   
         self.update_total()
 
     def update_total(self):
@@ -37,4 +37,7 @@ class ShoppingCart:
             receipt.append(f"Discount applied: {self.discount}%")
         receipt.append(f"Total: ${self.total:.2f}")
         return "\n".join(receipt)
+    def remove_item(self):
+        self.update_total()
+        
 
