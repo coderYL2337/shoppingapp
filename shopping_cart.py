@@ -69,5 +69,9 @@ class ShoppingCart:
         return "\n".join(receipt)
     def get_return(self):
                 return=[]
-                return "\n".join(return)
+                for item, details in self.items.items():
+                    if details['quantity'] > 0:
+                        line = f"{item}: ${details['price']} x {details['quantity']} = ${-details['price'] * details['quantity']}"
+                        return_items.append(line)
+                return "\n".join(return_items)
             
